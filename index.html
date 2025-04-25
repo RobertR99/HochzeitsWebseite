@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mir hürote!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    :root {
+      --main-green: #4d7358;
+      --accent-green: #cfe1d3;
+      --background: #f8fdf9;
+      --text: #2f4f4f;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: url('bilder/hochzeit.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #e0eee7;
+    }
+
+    h1 {
+      color: var(--main-green);
+      font-size: 9rem;
+      margin-bottom: 1rem;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    p.subtitle {
+      font-size: 1.3rem;
+      color: #444;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--main-green);
+      margin-top: 1rem;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+      overflow: hidden;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 4rem 0;
+      overflow: hidden;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 90%;
+      background: var(--main-green);
+      z-index: 0;
+    }
+
+    .timeline-event {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 40%;
+      position: relative;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      z-index: 1;
+      overflow-wrap: break-word;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+      clear: both;
+    }
+
+.timeline-event::after {
+      content: '';
+      position: absolute;
+      top: 1.5rem;
+      width: 20px;
+      height: 15px;
+      background: var(--accent-green);
+      border: 3px solid var(--main-green);
+      border-radius: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background-color: var(--main-green);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e5947;
+    }
+
+    .menu-selection {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mir hürote!</h1>
+    <p class="subtitle">Wir freuen uns, diesen besonderen Tag mit euch zu feiern. 🕊️</p>
+    <div id="countdown"></div>
+  </header>
+
+  <section>
+    <h2>Info</h2>
+  </section>
+
+  <section>
+    <h2>Ablauf</h2>
+    <div class="timeline">
+      <div class="timeline-event">
+        <h3>Eintreffen beim Trauort</h3>
+        <p>13:30 beim Brennten Buur</p>
+      </div>
+      <div class="timeline-event">
+        <h3>Trauung</h3>
+        <p>14:00</p>
+      </div>
+       <div class="timeline-event">
+        <h3>Apéro</h3>
+        <p>Ab 15:00 Uhr bis 18:00 Uhr</p>
+      </div>
+      <div class="timeline-event" id="transfer" style="display:none;">
+        <h3>Transfer zum Festlokal in Sissach</h3>
+        <p>Abholung 18:00 Uhr durch Reisebus</p>
+      </div>
+      <div class="timeline-event" id="abendessen" style="display:none;">
+        <h3>Abendessen</h3>
+        <p>Ab ca 19:00 Uhr in der oberen Fabrik</p>
+      </div>
+      <div class="timeline-event" id="fest" style="display:none;">
+        <h3>Tanz & Spass</h3>
+        <p>Nach dem Essen bei der oberen Fabrik</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>Anreise / Locations</h2>
+    <div id="trauLocation" style="margin-top: 1rem;">
+    <h3>Trauung & Apèro</h3>
+    <p>Die Trauung und das Apero finden auf dem Bauernhof von Brenntenbuur statt.</p>
+    <p>INFORMATION BETREFFEND PARKPLÄTZEN</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30982.298597786557!2d7.742641393915475!3d47.43139618833497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479033ce09c26cf1%3A0xc70f09af0b69f761!2sHofladen%2C%20Eventraum!5e1!3m2!1sen!2sch!4v1745492950345!5m2!1sen!2sch" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div id="festLocation" style="margin-top: 1rem; display:none;">
+      <br>
+      <hr>
+    <h3>Essen & Fest</h3>
+    <p>Das Essen und gemeinsames Feiern findet in der Oberen Fabrik in Sissach statt.</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7740.434112360594!2d7.794192308859808!3d47.46631442577526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479035249b2cb105%3A0x2f159c80088f10c!2sObere%20Fabrik%20AG!5e1!3m2!1sen!2sch!4v1745493819688!5m2!1sen!2sch" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+  </section>
+
+  <section class="gallery">
+    <img src="bilder/hochzeit.jpeg" alt="Paar im Frühling" />
+  </section>
+
+  
+  <section>
+    <h2>Dresscode</h2>
+    <div>
+      Wir möchten dass ihr euch alle wohl fühlt bei unserer Hochzeit. Dennoch haben wir ein paar Wünsche betreffend Bekleidung.
+     <li> Kein weiss.</li>
+      <li>Kein Rot ?? </li>
+      <li>Bitte kommt herausgeputzt ;)</li>
+    </div>
+  </section>
+
+  <section>
+    <h2>Anmeldung</h2>
+<form action="https://formsubmit.co/michele.und.robert.heiraten@gmx.ch" method="POST">
+  <!-- Formsubmit Optionen -->
+  <input type="hidden" name="_subject" value="Neue Hochzeitsanmeldung">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="danke.html">
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+
+  <label for="teilnahme">Kannst du teilnehmen?</label>
+  <select id="teilnahme" name="teilnahme">
+    <option>----Bitte auswählen----</option>
+    <option value="ja_apero" id="ja_apero">Ich komme gerne an Trauung & Apèro</option>
+    <option value="ja_alles" id="ja_alles" style="display: none">Ich komme gerne von Anfang bis Schluss!</option>
+    <option value="nein">ich kann leider nicht teilnehmen</option>
+  </select>
+
+  <label for="begleitung" id="begleitung_label" style="display: none;">Möchtest du in Begleitung kommen?</label>
+  <input type="checkbox" id="begleitung" name="begleitung" style="display: none;">
+
+  <label for="begleitung_name" id="begleitung_name_label" style="display: none;">Wie heisst deine Begleitung?</label>
+  <input type="text" id="begleitung_name" name="begleitung_name" style="display: none;">
+
+  <div class="menu-selection" id="menuSelection">
+    <label for="menu" id="menu_label" style="display: none;">Essenswahl:</label>
+    <select id="menu" name="menu" style="display: none;" required>
+      <option>----Bitte Wähle dein Menu aus----</option>
+      <option value="fleisch">Tagliata mit Taglialini & gemischtem Gemüse</option>
+      <option value="vegan">Pilzragout (Vegan)</option>
+    </select>
+  </div>
+
+  <label for="nachricht">Nachricht (optional):</label>
+  <textarea id="nachricht" name="nachricht"></textarea>
+
+  <input type="submit" value="Absenden" />
+</form>
+
+  </section>
+
+
+  <section>
+    <h2>Kontakt bei Fragen</h2>
+    Kontaktiert uns oder unsere Trauzeugen.
+  </section>
+
+  
+  <section>
+    <h2>Geschenke</h2>
+    Wir freuen uns über eine kreative Beteiligung an der Hochzeit oder Flitterwochen.
+    <br> Wir haben keine materiellen Wünsche. 
+  </section>
+
+  <script>
+
+      const gruppe = new URLSearchParams(window.location.search).get("gruppe");
+      if (gruppe !== "apero" && gruppe !== "essen") {
+        document.body.style.background = "white";
+        document.body.innerHTML = "<h2>Zugriff verweigert</h2><p>Bitte verwende deinen persönlichen Link.</p>";
+      }
+
+//START begleitung Name anzeigen oder nicht
+  const begleitung = document.getElementById('begleitung');
+  const begleitung_label = document.getElementById('begleitung_label');
+  const begleitung_name = document.getElementById('begleitung_name');
+  const begleitung_name_label = document.getElementById('begleitung_name_label');
+
+  begleitung.addEventListener('change', () => {
+    if (begleitung.checked) {
+      begleitung_name.style.display = 'block';
+      begleitung_name_label.style.display = 'block';
+      
+      //begleitung_name.required = 'true';
+
+    } else {
+      begleitung_name.style.display = 'none';
+      begleitung_name_label.style.display = 'none';
+      //begleitung_name.required = 'false'
+    }
+  });
+//END Begleitung Name anzeigen oder nicht
+
+
+//START Essensauswahl anzeigen oder nicht
+  const teilnahme = document.getElementById('teilnahme');
+  const menuSelection = document.getElementById('menu');
+  const menu_label = document.getElementById('menu_label');
+
+  teilnahme.addEventListener('change', () => {
+
+      if(teilnahme.value == 'ja_alles') {
+        menuSelection.style.display = 'block';
+        menu_label.style.display = 'block';
+        begleitung.style.display = '';
+        begleitung_label.style.display = 'block';
+      }
+      else if(teilnahme.value == 'ja_apero'){
+        menuSelection.style.display = 'none';
+        menu_label.style.display = 'none';
+        begleitung.style.display = '';
+        begleitung_label.style.display = 'block';
+      }
+      else {
+        menuSelection.style.display = 'none';
+        menu_label.style.display = 'none';
+        begleitung.style.display = 'none';
+        begleitung_label.style.display = 'none';
+
+        begleitung.checked = false;
+        begleitung_name.style.display = 'none';
+        begleitung_name_label.style.display = 'none';
+      }
+    });
+//END Essensauswahl anzeigen oder nicht
+
+
+   /* const params = new URLSearchParams(window.location.search);
+    const gruppe = params.get("gruppe");*/
+
+    if (gruppe === "essen") {
+      document.getElementById("abendessen").style.display = "block";
+      document.getElementById("transfer").style.display = "block";
+      document.getElementById("fest").style.display = "block";
+      document.getElementById("menuSelection").style.display = "block";
+      document.getElementById("festLocation").style.display = "block";
+      document.getElementById("ja_alles").style.display = "block";
+    }
+
+    // Countdown Script
+    const countdownElement = document.getElementById("countdown");
+    const weddingDate = new Date("2025-08-16T14:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "💍 Heute ist der grosse Tag!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
