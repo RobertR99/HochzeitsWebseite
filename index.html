@@ -268,7 +268,43 @@
   </section>
 
   <section class="gallery">
-    <img src="bilder/hochzeit.jpeg" alt="Paar im Frühling" />
+    <img src="bilder/hochzeit.jpeg"/>
+    <img src="bilder/65cdb986-2923-4cae-9090-e987b3591b8a.jpeg"/>
+    <img src="bilder/79f34aa8-696e-44d4-a208-15dc82f15263.jpeg"/>
+    <img src="bilder/98f45069-47bb-4067-97fd-c00addc020f3.jpeg"/>
+    <img src="bilder/A22218D2-4616-4EE7-A6E4-314C18646AFF.jpeg"/>
+    <img src="bilder/aab67edf-4556-4e25-90e1-a1a210b66136.jpeg"/>
+    <img src="bilder/IMG_0034.jpeg"/>
+    <img src="bilder/IMG_0339.jpeg"/>
+    <img src="bilder/IMG_0562.jpeg"/>
+    <img src="bilder/IMG_0953.jpeg"/>
+    <img src="bilder/IMG_0986.jpeg"/>
+    <img src="bilder/IMG_1316.jpeg"/>
+    <img src="bilder/IMG_1340.jpeg"/>
+    <img src="bilder/IMG_1520.jpeg"/>
+    <img src="bilder/IMG_1758.jpeg"/>
+    <img src="bilder/IMG_1868.jpeg"/>
+    <img src="bilder/IMG_2321.jpeg"/>
+    <img src="bilder/IMG_2448.jpeg"/>
+    <img src="bilder/IMG_2646.jpeg"/> 
+    <img src="bilder/IMG_2699.jpeg"/>
+    <img src="bilder/IMG_9931.jpeg"/>
+    <img src="bilder/IMG_9610.jpeg"/>
+    <img src="bilder/IMG_9464.jpeg"/>
+    <img src="bilder/IMG_8667.jpeg"/>
+    <img src="bilder/IMG_7580.jpeg"/>
+    <img src="bilder/IMG_5996.jpeg"/> 
+    <img src="bilder/IMG_5770.jpeg"/>
+    <img src="bilder/IMG_2713.jpeg"/>
+    <img src="bilder/IMG_4109.jpeg"/>
+    <img src="bilder/IMG_5367.jpeg"/>
+    <img src="bilder/IMG_5364.jpeg"/>
+    <img src="bilder/IMG_4959.jpeg"/>
+    <img src="bilder/IMG_4704.jpeg"/>
+    <img src="bilder/IMG_4688.jpeg"/>
+    <img src="bilder/IMG_4660.jpeg"/>
+    <img src="bilder/IMG_4492.jpeg"/>
+    <img src="bilder/IMG_4190.jpeg"/>
   </section>
 
   
@@ -276,9 +312,11 @@
     <h2>Dresscode</h2>
     <div>
       Wir möchten dass ihr euch alle wohl fühlt bei unserer Hochzeit. Dennoch haben wir ein paar Wünsche betreffend Bekleidung.
-     <li> Kein weiss.</li>
-      <li>Kein Rot ?? </li>
-      <li>Bitte kommt herausgeputzt ;)</li>
+        <li>Casual Chique.</li>
+        <li>Kein weiss</li>
+        <li>Kein Rot</li>
+        <p>Wir haben ein Mood board mit Farben, an denen wir uns an der Hochzeit orientieren werden. Ihr dürft euch daran orientieren, müsst ihr aber nicht.</p>
+        <p>MOOD BOARD HINZUFÜGEN</p>
     </div>
   </section>
 
@@ -301,11 +339,13 @@
     <option value="nein">ich kann leider nicht teilnehmen</option>
   </select>
 
-    <!-- TODO: Einblenden wenn man teilname = ja -->
-  <input type="radio" id="bus" name="transport" value="bus" style="display:inline-block">
-  <label for="bus" style="display:inline-block">Ich komme mit den ÖV</label><br>
-  <input type="radio" id="auto" name="transport" value="auto" style="display:inline-block">
-  <label for="auto" style="display:inline-block">Ich komme mit dem Auto</label>
+    <label for="anreise" id="anreise_label" style="display: none">Art der Anreise</label>
+  <select id="anreise" name="anreise" style="display: none">
+    <option>----Bitte auswählen----</option>
+    <option value="auto" id="auto">Ich komme mit dem Auto & möchte dort parkieren</option>
+    <option value="shuttle" id="shuttle">Ich möchte gern den Shuttle von der Bushaltestelle nehmen</option>
+    <option value="other" id="other">Ich reise anderweitig an</option>
+  </select>
 
 
   <label for="begleitung" id="begleitung_label" style="display: none;">Möchtest du in Begleitung kommen?</label>
@@ -323,7 +363,6 @@
     </select>
   </div>
 
-  <!-- TODO: Einblenden wenn man ans Fest kommt -->
   <label for="liederwunsch" id="liederwunsch_label" style="display: none;">Das Lied müsst ihr unbedingt abspielen:</label>
   <input type="text" id="liederwunsch" name="liederwunsch" style="display: none;">
 
@@ -377,6 +416,13 @@
   });
 //END Begleitung Name anzeigen oder nicht
 
+// GET Fields for Travel "anreise"
+const anreiseSelection = document.getElementById('anreise');
+const anreise_label = document.getElementById('anreise_label');
+
+//GET Fields Liederwunsch
+const liederwunschSelection = document.getElementById('liederwunsch');
+const liederwunsch_label = document.getElementById('liederwunsch_label');
 
 //START Essensauswahl anzeigen oder nicht
   const teilnahme = document.getElementById('teilnahme');
@@ -390,12 +436,20 @@
         menu_label.style.display = 'block';
         begleitung.style.display = '';
         begleitung_label.style.display = 'block';
+        anreiseSelection.style.display = 'block';
+        anreise_label.style.display = 'block';
+        liederwunschSelection.style.display = 'block';
+        liederwunsch_label.style.display = 'block';
       }
       else if(teilnahme.value == 'ja_apero'){
         menuSelection.style.display = 'none';
         menu_label.style.display = 'none';
         begleitung.style.display = '';
         begleitung_label.style.display = 'block';
+        anreiseSelection.style.display = 'block';
+        anreise_label.style.display = 'block';
+        liederwunschSelection.style.display = 'none';
+        liederwunsch_label.style.display = 'none';
       }
       else {
         menuSelection.style.display = 'none';
@@ -406,6 +460,12 @@
         begleitung.checked = false;
         begleitung_name.style.display = 'none';
         begleitung_name_label.style.display = 'none';
+
+        anreiseSelection.style.display = 'none';
+        anreise_label.style.display = 'none';
+
+        liederwunschSelection.style.display = 'none';
+        liederwunsch_label.style.display = 'none';
       }
     });
 //END Essensauswahl anzeigen oder nicht
