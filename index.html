@@ -196,12 +196,16 @@
 <body>
   <header>
     <h1>Mir hürote!</h1>
-    <p class="subtitle">Wir freuen uns, diesen besonderen Tag mit euch zu feiern. 🕊️</p>
+    <p class="subtitle">🤍🎵🤍 Maybe we found love right where we are 🤍🎵🤍</p>
     <div id="countdown"></div>
   </header>
 
   <section>
     <h2>Info</h2>
+    <p> Wir laden dich/euch zu unserer Hochzeit am 16.08.2025 ein.</p>
+    <p> Wir würden uns freuen wenn du/ihr uns bei unserem Tag begleiten würdet. </p>
+    <p>Melde/t dich/euch doch per Anmeldeformular bis zum 10.06.2025 an. </p>
+    <p>Wir freuen uns auf dich/euch!</p>
   </section>
 
   <section>
@@ -240,7 +244,18 @@
     <div id="trauLocation" style="margin-top: 1rem;">
     <h3>Trauung & Apèro</h3>
     <p>Die Trauung und das Apero finden auf dem Bauernhof von Brenntenbuur statt.</p>
-    <p>INFORMATION BETREFFEND PARKPLÄTZEN</p>
+    <div>
+    <h3>INFORMATION BETREFFEND PARKPLÄTZEN</h3>
+      Bushaltestelle: Diegten Hirschen 
+      Laufweg zum Bauernhof: 20 Minuten
+
+      Bei folgender Verbindung können wir bei Bedarf einen Shuttle organisieren:
+      Bus Nr. 107 von Sissach Bahnhof ab 13:07 -> 13:18 Ankuft Diegten Hirschen
+
+      Parkplatz
+      Wenige Parkplätze beim Bauernhof, sonst Schützenweg 1 4457 Diegten 
+      10min laufen
+    </div>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30982.298597786557!2d7.742641393915475!3d47.43139618833497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479033ce09c26cf1%3A0xc70f09af0b69f761!2sHofladen%2C%20Eventraum!5e1!3m2!1sen!2sch!4v1745492950345!5m2!1sen!2sch" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div id="festLocation" style="margin-top: 1rem; display:none;">
@@ -248,6 +263,7 @@
       <hr>
     <h3>Essen & Fest</h3>
     <p>Das Essen und gemeinsames Feiern findet in der Oberen Fabrik in Sissach statt.</p>
+    <p>Wenn ihr mit dem Auto kommt parkiert bitte auf dem Parkplatz Robinson Spielplatz am Lindenweg 2 in 4450 Sissach</p>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7740.434112360594!2d7.794192308859808!3d47.46631442577526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479035249b2cb105%3A0x2f159c80088f10c!2sObere%20Fabrik%20AG!5e1!3m2!1sen!2sch!4v1745493819688!5m2!1sen!2sch" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
   </section>
 
@@ -285,6 +301,13 @@
     <option value="nein">ich kann leider nicht teilnehmen</option>
   </select>
 
+    <!-- TODO: Einblenden wenn man teilname = ja -->
+  <input type="radio" id="bus" name="transport" value="bus" style="display:inline-block">
+  <label for="bus" style="display:inline-block">Ich komme mit den ÖV</label><br>
+  <input type="radio" id="auto" name="transport" value="auto" style="display:inline-block">
+  <label for="auto" style="display:inline-block">Ich komme mit dem Auto</label>
+
+
   <label for="begleitung" id="begleitung_label" style="display: none;">Möchtest du in Begleitung kommen?</label>
   <input type="checkbox" id="begleitung" name="begleitung" style="display: none;">
 
@@ -299,6 +322,10 @@
       <option value="vegan">Pilzragout (Vegan)</option>
     </select>
   </div>
+
+  <!-- TODO: Einblenden wenn man ans Fest kommt -->
+  <label for="liederwunsch" id="liederwunsch_label" style="display: none;">Das Lied müsst ihr unbedingt abspielen:</label>
+  <input type="text" id="liederwunsch" name="liederwunsch" style="display: none;">
 
   <label for="nachricht">Nachricht (optional):</label>
   <textarea id="nachricht" name="nachricht"></textarea>
