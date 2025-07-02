@@ -52,7 +52,7 @@
 
     section {
       padding: 3rem 1rem;
-      max-width: 800px;
+      max-width: 70%;
       margin: 0 auto;
       text-align: center;
       background-color: rgba(255, 255, 255, 0.95);
@@ -128,24 +128,72 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    .gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      max-width: 220px;
+        /* ---------- Slideshow ---------- */
+    .slideshow {
+      position: relative;
+      /*max-width: 500px;      /* Breite nach Wunsch */
+      margin: 2rem auto;     /* zentriert */
+      aspect-ratio: 3 / 2;   /* verhindert Springen, passt zu 500×333 px */
+      overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
+    /* alle Bilder übereinander stapeln */
+    .slideshow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;   /* >> kein Verzerren, ganze Bildfläche sichtbar */
+      object-position: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      margin: 8px;
     }
+
+    /* nur das aktive Bild sichtbar */
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    /* --- Buttons --- */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(77,115,88,0.7);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: .4rem .8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+}
+.slide-btn.prev { left: 10px; }
+.slide-btn.next { right: 10px; }
+.slide-btn:hover { background: rgba(62,89,71,0.8); }
+
+/* --- Dots --- */
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: .5rem;
+  z-index: 3;
+}
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(77,115,88,0.5);
+  cursor: pointer;
+  transition: background .3s;
+}
+.dot.active,
+.dot:hover { background: rgba(77,115,88,1); }
 
     form {
       background: white;
@@ -204,7 +252,7 @@
     <h2>Info</h2>
     <p> Wir laden dich/euch zu unserer Hochzeit am 16.08.2025 ein.</p>
     <p> Wir würden uns freuen wenn du/ihr uns bei unserem Tag begleiten würdet. </p>
-    <p>Melde/t dich/euch doch per Anmeldeformular bis zum 10.06.2025 an. </p>
+    <p>Melde/t dich/euch doch per Anmeldeformular bis zum 20.07.2025 an. </p>
     <p>Wir freuen uns auf dich/euch!</p>
   </section>
 
@@ -224,53 +272,47 @@
         <p>Ab 15:00 Uhr bis 18:00 Uhr</p>
       </div>
       <div class="timeline-event" id="transfer" style="display:none;">
-        <h3>Transfer zum Festlokal in Sissach</h3>
-        <p>Abholung 18:00 Uhr durch Reisebus</p>
+        <h3>Kutschenrundfahrt für das Brautpaar</h3>
+        <p>Abholung ca 17:00 Uhr</p>
       </div>
       <div class="timeline-event" id="abendessen" style="display:none;">
         <h3>Abendessen</h3>
-        <p>Ab ca 19:00 Uhr in der oberen Fabrik</p>
+        <p>Der Grill wird um ca 19:00 Uhr angefeuert werden. Dazu gibt es eine Salatauswahl.</p>
       </div>
       <div class="timeline-event" id="fest" style="display:none;">
-        <h3>Tanz & Spass</h3>
-        <p>Nach dem Essen bei der oberen Fabrik</p>
+        <h3>Gemütliches Beisammensein & Party</h3>
+        <p>Nach dem Essen beim Brenten Buur</p>
       </div>
     </div>
   </section>
 
 
   <section>
-    <h2>Anreise / Locations</h2>
+    <h2>Anreise / Location</h2>
     <div id="trauLocation" style="margin-top: 1rem;">
-    <h3>Trauung & Apèro</h3>
-    <p>Die Trauung und das Apero finden auf dem Bauernhof von Brenntenbuur statt.</p>
+    <h3>Brenten Buur</h3>
+    <p>Unsere Hochzeit findet auf dem Bauernhof von Brenten Buur statt.</p>
+    </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30982.298597786557!2d7.742641393915475!3d47.43139618833497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479033ce09c26cf1%3A0xc70f09af0b69f761!2sHofladen%2C%20Eventraum!5e1!3m2!1sen!2sch!4v1745492950345!5m2!1sen!2sch" width="50%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>  
     <div>
-    <h3>INFORMATION BETREFFEND PARKPLÄTZEN</h3>
-      Bushaltestelle: Diegten Hirschen 
-      Laufweg zum Bauernhof: 20 Minuten
-
-      Bei folgender Verbindung können wir bei Bedarf einen Shuttle organisieren:
-      Bus Nr. 107 von Sissach Bahnhof ab 13:07 -> 13:18 Ankuft Diegten Hirschen
-
-      Parkplatz
-      Wenige Parkplätze beim Bauernhof, sonst Schützenweg 1 4457 Diegten 
-      10min laufen
-    </div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30982.298597786557!2d7.742641393915475!3d47.43139618833497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479033ce09c26cf1%3A0xc70f09af0b69f761!2sHofladen%2C%20Eventraum!5e1!3m2!1sen!2sch!4v1745492950345!5m2!1sen!2sch" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div id="festLocation" style="margin-top: 1rem; display:none;">
+    <h3>Information zu Parkplätzen und Anreise via ÖV</h3>
+      Bushaltestelle: Diegten Hirschen <br>
+      Laufweg zum Bauernhof: 20 Minuten<br>
       <br>
-      <hr>
-    <h3>Essen & Fest</h3>
-    <p>Das Essen und gemeinsames Feiern findet in der Oberen Fabrik in Sissach statt.</p>
-    <p>Wenn ihr mit dem Auto kommt parkiert bitte auf dem Parkplatz Robinson Spielplatz am Lindenweg 2 in 4450 Sissach</p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7740.434112360594!2d7.794192308859808!3d47.46631442577526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479035249b2cb105%3A0x2f159c80088f10c!2sObere%20Fabrik%20AG!5e1!3m2!1sen!2sch!4v1745493819688!5m2!1sen!2sch" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+      Bei folgender Verbindung können wir bei Bedarf einen Shuttle organisieren:<br>
+      Bus Nr. 107 von Sissach Bahnhof ab 13:07 -> 13:18 Ankuft Diegten Hirschen<br>
+      <br>
+      <b>Parkplatz</b> <br>
+      Es hat wenige Parkplätze beim Bauernhof, auf denen Gäste mit eingeschränkter Mobilität Vorrang haben. <br>
+      Weitere Parkplätze gibt es beim Schützenweg 1 4457 Diegten. Von dort aus braucht man 10 Minuten zu Fuss.
   </section>
 
-  <section class="gallery">
-    <img src="bilder/hochzeit.jpeg"/>
-    <img src="bilder/65cdb986-2923-4cae-9090-e987b3591b8a.jpeg"/>
-    <img src="bilder/79f34aa8-696e-44d4-a208-15dc82f15263.jpeg"/>
+  <!--TODO: make this a diashow and ensure that the picture scaling stays the same.-->
+  <section class="slideshow" id="slideshow">
+    <img src="bilder/hochzeit.jpeg" alt="Bild1" class="active"/>
+    <img src="bilder/65cdb986-2923-4cae-9090-e987b3591b8a.jpeg" alt="Bild2"/>
+    <img src="bilder/79f34aa8-696e-44d4-a208-15dc82f15263.jpeg" alt="Bild3"/>
     <img src="bilder/98f45069-47bb-4067-97fd-c00addc020f3.jpeg"/>
     <img src="bilder/A22218D2-4616-4EE7-A6E4-314C18646AFF.jpeg"/>
     <img src="bilder/aab67edf-4556-4e25-90e1-a1a210b66136.jpeg"/>
@@ -305,6 +347,11 @@
     <img src="bilder/IMG_4660.jpeg"/>
     <img src="bilder/IMG_4492.jpeg"/>
     <img src="bilder/IMG_4190.jpeg"/>
+
+    <!-- Navigations‑Elemente -->
+  <button id="slidePrev" class="slide-btn prev">❮</button>
+  <button id="slideNext" class="slide-btn next">❯</button>
+  <div id="dots" class="dots"></div>
   </section>
 
   
@@ -312,11 +359,11 @@
     <h2>Dresscode</h2>
     <div>
       Wir möchten dass ihr euch alle wohl fühlt bei unserer Hochzeit. Dennoch haben wir ein paar Wünsche betreffend Bekleidung.
-        <li>Casual Chique.</li>
-        <li>Kein weiss</li>
-        <li>Kein Rot</li>
+        <div>- Casual Chique</br>
+        - Kein weiss</br>
+        - Kein Rot</div>
         <p>Wir haben ein Mood board mit Farben, an denen wir uns an der Hochzeit orientieren werden. Ihr dürft euch daran orientieren, müsst ihr aber nicht:</p>
-          <img src="bilder/moodboard.jpg" width="90%"/>
+          <img src="bilder/moodboard.jpg" width="70%"/>
     </div>
   </section>
 
@@ -355,16 +402,19 @@
   <input type="text" id="begleitung_name" name="begleitung_name" style="display: none;">
 
   <div class="menu-selection" id="menuSelection">
-    <label for="menu" id="menu_label" style="display: none;">Essenswahl:</label>
+    <label for="menu" id="menu_label" style="display: none;">Essenswunsch:</label>
     <select id="menu" name="menu" style="display: none;" required>
-      <option>----Bitte Wähle dein Menu aus----</option>
-      <option value="fleisch">Tagliata mit Taglialini & gemischtem Gemüse</option>
-      <option value="vegan">Pilzragout (Vegan)</option>
+      <option>----Bitte Wähle dein präferiertes Essen aus----</option>
+      <option value="fleisch">Fleischvariation vom Grill</option>
+      <option value="vegan">Vegane Grillvariation</option>
     </select>
   </div>
 
-  <label for="liederwunsch" id="liederwunsch_label" style="display: none;">Das Lied müsst ihr unbedingt abspielen:</label>
+  <label for="liederwunsch" id="liederwunsch_label" style="display: none;">Das Lied darf deiner Meinung nach an unserer Hochzeit nicht fehlen:</label>
   <input type="text" id="liederwunsch" name="liederwunsch" style="display: none;">
+
+  <label for="getraenk" id="getraenk_label" style="display: none;">Welches Getränk darf an einer Party nicht fehlen:</label>
+  <input type="text" id="getraenk" name="getraenk" style="display: none;">
 
   <label for="nachricht">Nachricht (optional):</label>
   <textarea id="nachricht" name="nachricht"></textarea>
@@ -383,8 +433,8 @@
   
   <section>
     <h2>Geschenke</h2>
-    Wir freuen uns über eine kreative Beteiligung an der Hochzeit oder Flitterwochen.
-    <br> Wir haben keine materiellen Wünsche. 
+    Reiskocher, Thermomix, Tellersets & Co sind zwar toll, brauchen wir aber nicht.
+    <br> Wenn ihr uns etwas schenken wollt, freuen wir uns über eine kreative Beteiligung an der Hochzeit oder Flitterwochen. 💙
   </section>
 
   <script>
@@ -394,6 +444,63 @@
         document.body.style.background = "white";
         document.body.innerHTML = "<h2>Zugriff verweigert</h2><p>Bitte verwende deinen persönlichen Link.</p>";
       }
+
+      if (gruppe === "essen") {
+      document.getElementById("abendessen").style.display = "block";
+      document.getElementById("transfer").style.display = "block";
+      document.getElementById("fest").style.display = "block";
+      document.getElementById("menuSelection").style.display = "block";
+      document.getElementById("ja_alles").style.display = "block";
+    }
+
+
+    const initSlideshow = function() {
+      const slides = document.querySelectorAll('#slideshow img');
+      const prevBtn  = document.getElementById('slidePrev');
+      const nextBtn  = document.getElementById('slideNext');
+      const dotsWrap = document.getElementById('dots');
+
+      let idx = 0;
+      let autoplayId;
+
+      /* --- Hilfsfunktionen --- */
+      function showSlide(i) {
+        slides.forEach((img, k) => {
+          img.classList.toggle('active', k === i);
+          dotsWrap.children[k].classList.toggle('active', k === i);
+        });
+      }
+      function nextSlide()  { idx = (idx + 1) % slides.length; showSlide(idx); }
+      function prevSlide()  { idx = (idx - 1 + slides.length) % slides.length; showSlide(idx); }
+      function startAuto()  { autoplayId = setInterval(nextSlide, 3500); }
+      function stopAuto()   { clearInterval(autoplayId); }
+
+      /* --- Dots dynamisch erzeugen --- */
+      slides.forEach(() => {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dotsWrap.appendChild(dot);
+      });
+
+      /* --- Events --- */
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      dotsWrap.addEventListener('click', e => {
+        if (e.target.classList.contains('dot')) {
+          idx = [...dotsWrap.children].indexOf(e.target);
+          showSlide(idx);
+        }
+      });
+      document.getElementById('slideshow').addEventListener('mouseenter', stopAuto);
+      document.getElementById('slideshow').addEventListener('mouseleave', startAuto);
+
+      /* --- Start --- */
+      showSlide(idx);
+      startAuto();
+    }
+
+    /* ===================================================== */
+
 
 //START begleitung Name anzeigen oder nicht
   const begleitung = document.getElementById('begleitung');
@@ -424,6 +531,10 @@ const anreise_label = document.getElementById('anreise_label');
 const liederwunschSelection = document.getElementById('liederwunsch');
 const liederwunsch_label = document.getElementById('liederwunsch_label');
 
+//GET Fields Liederwunsch
+const getraenkwunschSelection = document.getElementById('getraenk');
+const getraenkwunsch_label = document.getElementById('getraenk_label');
+
 //START Essensauswahl anzeigen oder nicht
   const teilnahme = document.getElementById('teilnahme');
   const menuSelection = document.getElementById('menu');
@@ -440,6 +551,8 @@ const liederwunsch_label = document.getElementById('liederwunsch_label');
         anreise_label.style.display = 'block';
         liederwunschSelection.style.display = 'block';
         liederwunsch_label.style.display = 'block';
+        getraenkwunschSelection.style.display = 'block';
+        getraenkwunsch_label.style.display = 'block';
       }
       else if(teilnahme.value == 'ja_apero'){
         menuSelection.style.display = 'none';
@@ -450,6 +563,8 @@ const liederwunsch_label = document.getElementById('liederwunsch_label');
         anreise_label.style.display = 'block';
         liederwunschSelection.style.display = 'none';
         liederwunsch_label.style.display = 'none';
+        getraenkwunschSelection.style.display = 'none';
+        getraenkwunsch_label.style.display = 'none';
       }
       else {
         menuSelection.style.display = 'none';
@@ -466,22 +581,12 @@ const liederwunsch_label = document.getElementById('liederwunsch_label');
 
         liederwunschSelection.style.display = 'none';
         liederwunsch_label.style.display = 'none';
+
+        getraenkwunschSelection.style.display = 'none';
+        getraenkwunsch_label.style.display = 'none';
       }
     });
 //END Essensauswahl anzeigen oder nicht
-
-
-   /* const params = new URLSearchParams(window.location.search);
-    const gruppe = params.get("gruppe");*/
-
-    if (gruppe === "essen") {
-      document.getElementById("abendessen").style.display = "block";
-      document.getElementById("transfer").style.display = "block";
-      document.getElementById("fest").style.display = "block";
-      document.getElementById("menuSelection").style.display = "block";
-      document.getElementById("festLocation").style.display = "block";
-      document.getElementById("ja_alles").style.display = "block";
-    }
 
     // Countdown Script
     const countdownElement = document.getElementById("countdown");
@@ -504,6 +609,13 @@ const liederwunsch_label = document.getElementById('liederwunsch_label');
       countdownElement.innerHTML = `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
     };
 
+    /* Am Ende deines bestehenden Scripts – nach DOM‑Load: */
+    /*document.addEventListener('DOMContentLoaded', () => {
+      initSlideshow();   // Slideshow initialisieren
+      // …falls du weitere Init‑Funktionen hast, hier aufrufen …
+    });*/
+
+    initSlideshow();
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
