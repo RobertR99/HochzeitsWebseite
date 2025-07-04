@@ -308,7 +308,6 @@
       Weitere Parkplätze gibt es beim Schützenweg 1 4457 Diegten. Von dort aus braucht man 10 Minuten zu Fuss.
   </section>
 
-  <!--TODO: make this a diashow and ensure that the picture scaling stays the same.-->
   <section class="slideshow" id="slideshow">
     <img src="bilder/hochzeit.jpeg" alt="Bild1" class="active"/>
     <img src="bilder/65cdb986-2923-4cae-9090-e987b3591b8a.jpeg" alt="Bild2"/>
@@ -369,58 +368,58 @@
 
   <section>
     <h2>Anmeldung</h2>
-<form action="https://formsubmit.co/michele.und.robert.heiraten@gmx.ch" method="POST">
-  <!-- Formsubmit Optionen -->
-  <input type="hidden" name="_subject" value="Neue Hochzeitsanmeldung">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="danke.html">
+    <form action="https://formsubmit.co/michele.und.robert.heiraten@gmx.ch" method="POST">
+      <!-- Formsubmit Optionen -->
+      <input type="hidden" name="_subject" value="Neue Hochzeitsanmeldung">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="danke.html">
 
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required />
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
 
-  <label for="teilnahme">Kannst du teilnehmen?</label>
-  <select id="teilnahme" name="teilnahme">
-    <option>----Bitte auswählen----</option>
-    <option value="ja_alles" id="ja_alles" style="display: none">Ich komme gerne von Anfang bis Schluss!</option>
-    <option value="ja_apero" id="ja_apero">Ich komme gerne an Trauung & Apèro</option>
-    <option value="nein">ich kann leider nicht teilnehmen</option>
-  </select>
+      <label for="teilnahme">Kannst du teilnehmen?</label>
+      <select id="teilnahme" name="teilnahme">
+        <option>----Bitte auswählen----</option>
+        <option value="ja_alles" id="ja_alles" hidden="true">Ich komme gerne von Anfang bis Schluss!</option>
+        <option value="ja_apero" id="ja_apero">Ich komme gerne an Trauung & Apèro</option>
+        <option value="nein">ich kann leider nicht teilnehmen</option>
+      </select>
 
-    <label for="anreise" id="anreise_label" style="display: none">Art der Anreise</label>
-  <select id="anreise" name="anreise" style="display: none">
-    <option>----Bitte auswählen----</option>
-    <option value="auto" id="auto">Ich komme mit dem Auto & möchte dort parkieren</option>
-    <option value="shuttle" id="shuttle">Ich möchte gern den Shuttle von der Bushaltestelle nehmen</option>
-    <option value="other" id="other">Ich reise anderweitig an</option>
-  </select>
+        <label for="anreise" id="anreise_label" style="display: none">Art der Anreise</label>
+      <select id="anreise" name="anreise" style="display: none">
+        <option>----Bitte auswählen----</option>
+        <option value="auto" id="auto">Ich komme mit dem Auto & möchte dort parkieren</option>
+        <option value="shuttle" id="shuttle">Ich möchte gern den Shuttle von der Bushaltestelle nehmen</option>
+        <option value="other" id="other">Ich reise anderweitig an</option>
+      </select>
 
 
-  <label for="begleitung" id="begleitung_label" style="display: none;">Möchtest du in Begleitung kommen?</label>
-  <input type="checkbox" id="begleitung" name="begleitung" style="display: none;">
+      <label for="begleitung" id="begleitung_label" style="display: none;">Möchtest du in Begleitung kommen?</label>
+      <input type="checkbox" id="begleitung" name="begleitung" style="display: none;">
 
-  <label for="begleitung_name" id="begleitung_name_label" style="display: none;">Wie heisst deine Begleitung?</label>
-  <input type="text" id="begleitung_name" name="begleitung_name" style="display: none;">
+      <label for="begleitung_name" id="begleitung_name_label" style="display: none;">Wie heisst deine Begleitung?</label>
+      <input type="text" id="begleitung_name" name="begleitung_name" style="display: none;">
 
-  <div class="menu-selection" id="menuSelection">
-    <label for="menu" id="menu_label" style="display: none;">Essenswunsch:</label>
-    <select id="menu" name="menu" style="display: none;" required>
-      <option>----Bitte Wähle dein präferiertes Essen aus----</option>
-      <option value="fleisch">Fleischvariation vom Grill</option>
-      <option value="vegan">Vegane Grillvariation</option>
-    </select>
-  </div>
+      <div class="menu-selection" id="menuSelection">
+        <label for="menu" id="menu_label" style="display: none;">Essenswunsch:</label>
+        <select id="menu" name="menu" style="display: none;" required>
+          <option>----Bitte Wähle dein präferiertes Essen aus----</option>
+          <option value="fleisch">Fleischvariation vom Grill</option>
+          <option value="vegan">Vegane Grillvariation</option>
+        </select>
+      </div>
 
-  <label for="liederwunsch" id="liederwunsch_label" style="display: none;">Das Lied darf deiner Meinung nach an unserer Hochzeit nicht fehlen:</label>
-  <input type="text" id="liederwunsch" name="liederwunsch" style="display: none;">
+      <label for="liederwunsch" id="liederwunsch_label" style="display: none;">Das Lied darf deiner Meinung nach an unserer Hochzeit nicht fehlen:</label>
+      <input type="text" id="liederwunsch" name="liederwunsch" style="display: none;">
 
-  <label for="getraenk" id="getraenk_label" style="display: none;">Welches Getränk darf an einer Party nicht fehlen:</label>
-  <input type="text" id="getraenk" name="getraenk" style="display: none;">
+      <label for="getraenk" id="getraenk_label" style="display: none;">Welches Getränk darf an einer Party nicht fehlen:</label>
+      <input type="text" id="getraenk" name="getraenk" style="display: none;">
 
-  <label for="nachricht">Nachricht (optional):</label>
-  <textarea id="nachricht" name="nachricht"></textarea>
+      <label for="nachricht">Nachricht (optional):</label>
+      <textarea id="nachricht" name="nachricht"></textarea>
 
-  <input type="submit" value="Absenden" />
-</form>
+      <input type="submit" value="Absenden" />
+    </form>
 
   </section>
 
@@ -446,12 +445,13 @@
       }
 
       if (gruppe === "essen") {
-      document.getElementById("abendessen").style.display = "block";
-      document.getElementById("transfer").style.display = "block";
-      document.getElementById("fest").style.display = "block";
-      document.getElementById("menuSelection").style.display = "block";
-      document.getElementById("ja_alles").style.display = "block";
-    }
+        document.getElementById("abendessen").style.display = "block";
+        document.getElementById("transfer").style.display = "block";
+        document.getElementById("fest").style.display = "block";
+        document.getElementById("menuSelection").style.display = "block";
+        document.getElementById("ja_alles").style.display = "block";
+        document.getElementById("ja_alles").hidden = "false";
+      }
 
 
     const initSlideshow = function() {
@@ -512,13 +512,9 @@
     if (begleitung.checked) {
       begleitung_name.style.display = 'block';
       begleitung_name_label.style.display = 'block';
-      
-      //begleitung_name.required = 'true';
-
     } else {
       begleitung_name.style.display = 'none';
       begleitung_name_label.style.display = 'none';
-      //begleitung_name.required = 'false'
     }
   });
 //END Begleitung Name anzeigen oder nicht
@@ -609,15 +605,12 @@ const getraenkwunsch_label = document.getElementById('getraenk_label');
       countdownElement.innerHTML = `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
     };
 
-    /* Am Ende deines bestehenden Scripts – nach DOM‑Load: */
-    /*document.addEventListener('DOMContentLoaded', () => {
-      initSlideshow();   // Slideshow initialisieren
-      // …falls du weitere Init‑Funktionen hast, hier aufrufen …
-    });*/
+    document.addEventListener('DOMContentLoaded', () => {
+      initSlideshow(); 
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
 
-    initSlideshow();
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
