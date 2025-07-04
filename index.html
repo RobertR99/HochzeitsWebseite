@@ -537,13 +537,13 @@ const getraenkwunsch_label = document.getElementById('getraenk_label');
 
 //START Essensauswahl anzeigen oder nicht
   const teilnahme = document.getElementById('teilnahme');
-  const menuSelection = document.getElementById('menu');
+  const menuSelectionElement = document.getElementById('menu');
   const menu_label = document.getElementById('menu_label');
 
   teilnahme.addEventListener('change', () => {
 
       if(teilnahme.value == 'ja_alles') {
-        menuSelection.style.display = 'block';
+        menuSelectionElement.style.display = 'block';
         menu_label.style.display = 'block';
         begleitung.style.display = '';
         begleitung_label.style.display = 'block';
@@ -555,7 +555,7 @@ const getraenkwunsch_label = document.getElementById('getraenk_label');
         getraenkwunsch_label.style.display = 'block';
       }
       else if(teilnahme.value == 'ja_apero'){
-        menuSelection.style.display = 'none';
+        menuSelectionElement.style.display = 'none';
         menu_label.style.display = 'none';
         begleitung.style.display = '';
         begleitung_label.style.display = 'block';
@@ -567,7 +567,7 @@ const getraenkwunsch_label = document.getElementById('getraenk_label');
         getraenkwunsch_label.style.display = 'none';
       }
       else {
-        menuSelection.style.display = 'none';
+        menuSelectionElement.style.display = 'none';
         menu_label.style.display = 'none';
         begleitung.style.display = 'none';
         begleitung_label.style.display = 'none';
